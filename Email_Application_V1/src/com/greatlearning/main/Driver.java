@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 import com.greatlearning.model.Employee;
 import com.greatlearning.service.CredentialService;
+import com.greatlearning.utils.Constants;
 
 public class Driver {
 	public static Employee employee =new Employee("Susmitha", "Reddy");
 	public static Scanner scanner =new Scanner(System.in);
 	public static CredentialService credentialservice =new CredentialService();
+	public static Constants constants =new Constants();
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String employeeFirstName = getEmployeeFirstName();
@@ -19,15 +21,15 @@ public class Driver {
 		String emailaddress = "";
 		
 		switch(choice) {
-			case 1 :emailaddress= credentialservice.generateEmailAddress(employeeFirstName, employeeLastName, "tech");
+			case 1 :emailaddress= credentialservice.generateEmailAddress(employeeFirstName, employeeLastName, Constants.Tech_Department);
 			break;
-			case 2:emailaddress=credentialservice.generateEmailAddress(employeeFirstName, employeeLastName, "admin");
+			case 2:emailaddress=credentialservice.generateEmailAddress(employeeFirstName, employeeLastName,Constants.Admin_Department);
 			
 			break;
-			case 3:emailaddress=credentialservice.generateEmailAddress(employeeFirstName, employeeLastName, "hr");
+			case 3:emailaddress=credentialservice.generateEmailAddress(employeeFirstName, employeeLastName,Constants.Hr_Department);
 			
 			break;
-			case 4:emailaddress= credentialservice.generateEmailAddress(employeeFirstName, employeeLastName, "legal");
+			case 4:emailaddress= credentialservice.generateEmailAddress(employeeFirstName, employeeLastName, Constants.Legal_Department);
 			break;
 			default:System.out.println("Please choose 1 to 4");
 		}
